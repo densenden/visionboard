@@ -11,17 +11,27 @@ function Slide({ backgroundImage, title, affirmation, id }) {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'flex-end', // Align content to bottom
     alignItems: 'center',
     textAlign: 'center',
     color: 'white',
+  };
+
+  const gradientOverlayStyle = {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    height: '33%', // Bottom third has gradient
+    background: 'linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0))',
+    zIndex: 1,
   };
 
   const contentStyle = {
     position: 'relative',
     zIndex: 2,
     padding: '0 20px',
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Add text shadow for better readability
+    marginBottom: '10vh', // Position in lower third
   };
 
   const titleStyle = {
@@ -42,7 +52,8 @@ function Slide({ backgroundImage, title, affirmation, id }) {
     fontSize: '1.2rem',
     fontWeight: 100,
     letterSpacing: '1px',
-    opacity: 0.8,
+    color: 'black',
+    zIndex: 2,
   };
 
   // Function to render title with different font weights
@@ -72,8 +83,9 @@ function Slide({ backgroundImage, title, affirmation, id }) {
 
   return (
     <div className="slide" style={slideStyle}>
+      <div style={gradientOverlayStyle}></div>
+      {id === 'office' && <div style={brandingStyle}>SenVision</div>}
       <div style={contentStyle}>
-        {id === 'office' && <div style={brandingStyle}>SenVision</div>}
         {renderTitle()}
         <p style={affirmationStyle}>{affirmation}</p>
       </div>

@@ -8,7 +8,9 @@ An elegant, motivational React website featuring three fullscreen sections. Each
 - Auto-scrolling with snap effect using @fullpage/react-fullpage
 - Minimalist dot navigation for simple section switching
 - Typography featuring Geist font with varying weights
-- SenVision branding on the first page
+- SenVision branding on the first page (black color)
+- Content positioned in the lower third for better visual composition
+- Black gradient overlay from bottom for better text readability
 - Responsive design for all screen sizes
 
 ## Setup
@@ -48,7 +50,7 @@ An elegant, motivational React website featuring three fullscreen sections. Each
 ### Section 1: Office in High-Rise
 - Headline: "Home Inspiration Relaxation Bliss" (with varying font weights)
 - Affirmation: "Start your day with clarity and purpose. Visualize your goals before taking action."
-- Branding: "SenVision" in top-left corner
+- Branding: "SenVision" in black color at top-left corner
 
 ### Section 2: Bungalow in Nature
 - Headline: "Serenity Nature Balance Growth" (with varying font weights)
@@ -65,7 +67,8 @@ An elegant, motivational React website featuring three fullscreen sections. Each
 - Second word uses Thin (100) weight
 - Third word uses Medium (500) weight
 - Fourth word uses Black (900) weight
-- Text shadow provides readability against image backgrounds
+- Text positioned in the lower third of the slide
+- Black gradient overlay from bottom enhances text readability
 - Hover effects on headline words for interactive engagement
 
 ## Dependencies
