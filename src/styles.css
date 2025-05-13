@@ -1,0 +1,93 @@
+/* Import Geist font with different weights */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Geist', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+  overflow: hidden;
+}
+
+/* Navigation styles */
+.navigation {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav-item {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+.nav-item:hover, .nav-item.active {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* Slide content transitions */
+.slide h1, .slide p {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+}
+
+.slide p {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fullpage overrides */
+.fp-watermark {
+  display: none !important;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .slide h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  .slide p {
+    font-size: 1.2rem !important;
+  }
+  
+  .navigation {
+    right: 10px;
+  }
+  
+  .nav-item {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+} 
