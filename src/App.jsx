@@ -7,23 +7,23 @@ const slides = [
   {
     id: 'office',
     backgroundImage: '/images/office.jpg',
-    title: 'Home.Inspiration.Relaxation.Bliss',
-    affirmation: 'Start your day with clarity and purpose.',
-    icon: '🏙️'
+    title: 'Home Inspiration Relaxation Bliss',
+    affirmation: 'Start your day with clarity and purpose. Visualize your goals before taking action.',
+    icon: '•'
   },
   {
     id: 'bungalow',
     backgroundImage: '/images/bungalow.jpg',
-    title: 'Serenity in Nature',
-    affirmation: 'Embrace the calm and find your center.',
-    icon: '🌿'
+    title: 'Serenity Nature Balance Growth',
+    affirmation: 'Embrace the calm and find your center. Connect with the peaceful rhythm of life.',
+    icon: '•'
   },
   {
     id: 'holiday',
     backgroundImage: '/images/holiday.jpg',
-    title: 'Escape to Tranquility',
-    affirmation: 'Let go and rejuvenate your spirit.',
-    icon: '🏖️'
+    title: 'Escape Tranquility Freedom Joy',
+    affirmation: 'Let go and rejuvenate your spirit. Create space for new possibilities to emerge.',
+    icon: '•'
   }
 ];
 
@@ -68,6 +68,7 @@ function App() {
               {slides.map(slide => (
                 <div key={slide.id} className="section">
                   <Slide
+                    id={slide.id}
                     backgroundImage={slide.backgroundImage}
                     title={slide.title}
                     affirmation={slide.affirmation}

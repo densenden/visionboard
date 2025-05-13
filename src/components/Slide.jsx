@@ -1,7 +1,7 @@
 import React from 'react';
 
 // This component renders a single slide with background image and text
-function Slide({ backgroundImage, title, affirmation }) {
+function Slide({ backgroundImage, title, affirmation, id }) {
   const slideStyle = {
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
@@ -17,19 +17,11 @@ function Slide({ backgroundImage, title, affirmation }) {
     color: 'white',
   };
 
-  const overlayStyle = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // dark semi-transparent overlay
-  };
-
   const contentStyle = {
     position: 'relative',
     zIndex: 2,
     padding: '0 20px',
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Add text shadow for better readability
   };
 
   const titleStyle = {
@@ -43,24 +35,34 @@ function Slide({ backgroundImage, title, affirmation }) {
     fontWeight: 300,
   };
 
+  const brandingStyle = {
+    position: 'absolute',
+    top: '20px',
+    left: '20px',
+    fontSize: '1.2rem',
+    fontWeight: 100,
+    letterSpacing: '1px',
+    opacity: 0.8,
+  };
+
   // Function to render title with different font weights
   const renderTitle = () => {
-    if (!title.includes('.')) return <h1 style={titleStyle}>{title}</h1>;
+    // Split by words to apply different weights
+    const words = title.split(' ');
     
-    // Split by dots to apply different weights
     return (
       <h1 style={titleStyle}>
-        {title.split('.').map((part, index) => {
+        {words.map((word, index) => {
           // Determine font weight based on position
           let weight;
-          if (index === 0) weight = 900; // First part - Black
-          else if (index === 1) weight = 100; // Second part - Thin
-          else if (index === 2) weight = 500; // Third part - Medium
-          else weight = 900; // Last part - Black
+          if (index === 0) weight = 900; // First word - Black
+          else if (index === 1) weight = 100; // Second word - Thin
+          else if (index === 2) weight = 500; // Third word - Medium
+          else weight = 900; // Last word - Black
           
           return (
-            <span key={index} style={{ fontWeight: weight }}>
-              {part}{index < title.split('.').length - 1 ? '.' : ''}
+            <span key={index} style={{ fontWeight: weight, display: 'inline-block' }}>
+              {word}{index < words.length - 1 ? ' ' : ''}
             </span>
           );
         })}
@@ -70,8 +72,8 @@ function Slide({ backgroundImage, title, affirmation }) {
 
   return (
     <div className="slide" style={slideStyle}>
-      <div style={overlayStyle}></div>
       <div style={contentStyle}>
+        {id === 'office' && <div style={brandingStyle}>SenVision</div>}
         {renderTitle()}
         <p style={affirmationStyle}>{affirmation}</p>
       </div>
